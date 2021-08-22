@@ -28,15 +28,6 @@ conn = psycopg2.connect(dbname='anton_db', user='anton_u', password='123', host=
 cursor = conn.cursor()
 
 
-
-
-
-
-
-
-
-
-
 # добавить CALLBACK         
 @app.route('/callback', methods=['POST'])
 def callback():
