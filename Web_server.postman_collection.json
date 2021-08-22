@@ -1,0 +1,531 @@
+{
+	"info": {
+		"_postman_id": "ccbe4278-affe-4011-9f9c-0fc13c4a2239",
+		"name": "Web_server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/callback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "{{name}}",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "{{phone_number}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/callback",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"callback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "order_cookie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Bush",
+							"type": "text"
+						},
+						{
+							"key": "phone_number",
+							"value": "097988957",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "president@mail.com",
+							"type": "text"
+						},
+						{
+							"key": "product_id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "count",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/order_cookie",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"order_cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "product_macaron",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Maracon_10_in_1",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "500",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/product_macaron",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"product_macaron"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/get_callback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//Тело соответствует строкам\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"call_datetime\", \"call_id\", \"call_name\", \"call_phone_number\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// проверка схемы\r",
+							"const schema = {\r",
+							"  \"type\" : \"array\",\r",
+							"  \"items\" : [\r",
+							"      {\r",
+							"        \"type\" : \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"call_datetime\": {\"type\": \"string\"},\r",
+							"            \"call_id\": {\"type\": \"number\"},\r",
+							"            \"call_name\": { \"type\": \"string\"},\r",
+							"            \"call_phone_number\": {\"type\": \"string\"}\r",
+							"        },\r",
+							"        \"required\": [\r",
+							"            \"call_datetime\",\r",
+							"            \"call_id\",\r",
+							"            \"call_name\",\r",
+							"            \"call_phone_number\"\r",
+							"        ]\r",
+							"    }\r",
+							"  ]\r",
+							"};\r",
+							"pm.test(\"Schema is valid\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/get_callback",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"get_callback"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/order_cookie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//Тело соответствует строкам\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"order_count\", \"order_datetime\", \"order_email\", \"order_id\", \"order_name\", \"order_phone_number\", \"order_product_id\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// проверка схемы\r",
+							"const schema = {\r",
+							"  \"type\" : \"array\",\r",
+							"  \"items\" : [\r",
+							"      {\r",
+							"        \"type\" : \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"order_count\": {\"type\": \"number\"},\r",
+							"            \"order_datetime\": {\"type\": [\"string\",\"null\"]},\r",
+							"            \"order_email\": { \"type\": \"string\"},\r",
+							"            \"order_id\": {\"type\": \"number\"},\r",
+							"            \"order_name\": { \"type\": \"string\"},\r",
+							"            \"order_phone_number\": { \"type\": \"string\"},\r",
+							"            \"order_product_id\": { \"type\": \"number\"}\r",
+							"        },\r",
+							"        \"required\": [\r",
+							"            \"order_count\",\r",
+							"            \"order_email\",\r",
+							"            \"order_id\",\r",
+							"            \"order_name\",\r",
+							"            \"order_phone_number\",\r",
+							"            \"order_product_id\"\r",
+							"        ]\r",
+							"    }\r",
+							"  ]\r",
+							"};\r",
+							"pm.test(\"Schema is valid\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/get_order_cookie",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"get_order_cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/get_product_macaron",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"//Тело соответствует строкам\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"pr_id\", \"pr_name\", \"pr_price\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"// проверка схемы\r",
+							"const schema = {\r",
+							"  \"type\" : \"array\",\r",
+							"  \"items\" : [\r",
+							"      {\r",
+							"        \"type\" : \"object\",\r",
+							"        \"properties\": {\r",
+							"            \"pr_id\": {\"type\": \"number\"},\r",
+							"            \"pr_name\": {\"type\": \"string\"},\r",
+							"            \"pr_price\": { \"type\": \"number\"}\r",
+							"        },\r",
+							"        \"required\": [\r",
+							"            \"pr_id\",\r",
+							"            \"pr_name\",\r",
+							"            \"pr_price\"\r",
+							"        ]\r",
+							"    }\r",
+							"  ]\r",
+							"};\r",
+							"pm.test(\"Schema is valid\", () => {\r",
+							"    pm.response.to.have.jsonSchema(schema);\r",
+							"}); \r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/get_product_macaron",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"get_product_macaron"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del_callback",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/del_callback?id=6",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"del_callback"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del_order_cookie",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "29",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/del_order_cookie",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"del_order_cookie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/del_product_macaron",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// код ответа 200\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"// время загрузки менее 200мс\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "8",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/del_product_macaron",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"del_product_macaron"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

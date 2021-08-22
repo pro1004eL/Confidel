@@ -1,0 +1,122 @@
+API 
+
+1.	Endpoint є1 -  http://162.55.220.72:5005/callback
+Method: POST
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /callback
+Parameters: {
+ УNameФ: УLeoФ,
+	УPhone numberФ: У099 999 55 55Ф 
+	}
+
+¬ таблицу Ѕƒ УcallbackФ передаютс€ данные:
+Id	Name	Phone_number	datetime
+1	Leo	099 999 55 55	`current time`
+
+Endpoint є1.1 -  http://162.55.220.72:5005/get_callback
+ ак администратор
+Method: GET
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /get_callback
+ѕолучаем все данные с таблицы Ѕƒ УcallbackФ
+
+Endpoint є1.2 -  http://162.55.220.72:5005/del_callback
+ ак администратор
+Method: DELETE 
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /del_callback
+Parameters: {
+ УidФ: У1Ф 
+	}
+”дал€ем строку id = 1 c таблицы Ѕƒ УcallbackФ 
+
+
+_____________________________________________________________________________
+
+
+2.	Endpoint є2 -  http://162.55.220.72:5005/order_cookie
+Method: POST
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /order_cookie
+Parameters: {
+ УNameФ: УTomФ,
+	УPhone numberФ: У099 777 44 55Ф,
+УemailФ: Уtest@gmail.comФ, 
+Уproduct_idФ: У5Ф, 
+УcountФ: У10Ф,
+	}
+
+
+¬ таблицу Ѕƒ Уorder_cookieФ передаютс€ данные:
+Id	Name	Phone_number	email	product_id	count	datetime
+1	Tom	099 777 44 55	test@gmail.com	5	10	`current time`
+
+Endpoint є2.1 -  http://162.55.220.72:5005/getr_order_cookie
+ ак администратор
+Method: GET
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /get_order_cookie
+ѕолучаем все данные с таблицы Ѕƒ У order_cookie Ф
+
+Endpoint є2.2 -  http://162.55.220.72:5005/del_order_cookie
+ ак администратор
+Method: DELETE 
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005 
+Path: /del_order_cookie
+Parameters: {
+ УidФ: У1Ф 
+	}
+”дал€ем строку id = 1 c таблицы Ѕƒ У order_cookie Ф
+
+
+_____________________________________________________________________________________
+3.	Endpoint є3 -  http://162.55.220.72:5005/product_macaron 
+ ак администратор
+Method: POST
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /product_macaron
+Parameters: {
+ УNameФ: У лассический макаронФ,
+	УPriceФ: У50,00Ф 
+	}
+
+¬ таблицу Ѕƒ УcallbackФ передаютс€ данные:
+Id	Name	Phone_number
+1	 лассический макарон	50,00
+
+Endpoint є3.1 -  http://162.55.220.72:5005/get_product_macaron 
+ ак администратор
+Method: GET
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /get_product_macaron
+ѕолучаем все данные с таблицы Ѕƒ Уproduct_macaron Ф
+
+Endpoint є3.2 -  http://162.55.220.72:5005/del_product_macaron 
+ ак администратор
+Method: DELETE
+ѕротокол: HTTP 
+IP: 162.55.220.72
+Port: 5005
+Path: /del_product_macaron
+Parameters: {
+ УidФ: У1Ф 
+	}
+”дал€ем строку id = 1 c таблицы Ѕƒ Уproduct_macaronФ
+
+

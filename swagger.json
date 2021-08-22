@@ -1,0 +1,409 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "description": "This is the Ksendzov QA Course train server, `Kolomiiets Anton web service Confidel`" ,
+    "version": "1.0.0",
+    "title": "Swagger QA train_server",
+    "contact": {
+      "email": "webscale200k@gmail.com"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "23.88.52.139:5002",
+  "schemes": ["http"],
+  "paths": {
+    
+  "/get_callback": {
+    "get": {
+      "tags": [
+        "callback"
+      ],
+      "summary": "check all callback requests",
+      "description": "",
+      "operationId": "getthecallbackrequest",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns a list of Callback requests"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page callback is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/callback": {
+    "post": {
+      "tags": [
+        "callback"
+      ],
+      "summary": "Make a Callback",
+      "description": "Return newly created callback data",
+      "operationId": "makethecallbackrequest",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "multipart/form-data": {    
+            "schema": {
+               "$ref" : "#/definitions/User"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Callback added successfully!"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page callback is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/del_callback": {
+    "delete": {
+      "tags": [ "callback" ],
+      "summary": "Delete callback order by ID",
+      "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+      "operationId": "deleteCallback",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "multipart/form-data": {    
+            "schema": {
+                "$ref" : "#/definitions/Del"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Callback successfully deleted"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page callback is not found"
+          }
+        }
+      }
+    },
+
+    "/get_order_cookie": {
+    "get": {
+      "tags": [
+        "order_cookie"
+      ],
+      "summary": "check all order cookie requests",
+      "description": "",
+      "operationId": "gettheordercookierequest",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the number of order cookie requests"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page order_cookie is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/order_cookie": {
+    "post": {
+      "tags": [
+        "order_cookie"
+      ],
+      "summary": "Make a order cookie",
+      "description": "",
+      "operationId": "maketheordercookierequest",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "application/x-www-form-urlencoded": {    
+            "schema": {
+               "$ref" : "#/definitions/Order"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Order added successfully!"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page order_cookie is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/del_order_cookie": {
+    "delete": {
+      "tags": [
+        "order_cookie"
+      ],
+      "summary": "Delete order cookie by ID",
+      "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+      "operationId": "deleteorderorder",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "multipart/form-data": {    
+            "schema": {
+                "$ref" : "#/definitions/Del"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Order cookie successfully deleted"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page order_cookie is not found"
+          }
+        }
+      }
+    },
+
+    "/get_product_macaron": {
+    "get": {
+      "tags": [
+        "product_macaron"
+      ],
+      "summary": "check all order macaron product requests",
+      "description": "",
+      "operationId": "gettheordermacaronproductrequest",
+      "consumes": [
+        "application/json"
+      ],
+      "produces": [
+        "application/json"
+      ],
+      "responses": {
+        "200": {
+          "description": "Returns the number of order macaron product requests"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page macaron product is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/product_macaron": {
+    "post": {
+      "tags": [
+        "product_macaron"
+      ],
+      "summary": "Make a order macaron product",
+      "description": "",
+      "operationId": "maketheordermacaronproductrequest",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "multipart/form-data": {    
+            "schema": {
+               "$ref" : "#/definitions/Product"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Cookie added successfully!"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page macaron product is not found"
+        }
+      },
+      "security" : [ {
+          "api_key" : [ ]
+        } ]
+      }
+    },
+
+    "/del_product_macaron": {
+    "delete": {
+      "tags": [
+        "product_macaron"
+      ],
+      "summary": "Delete product by ID",
+      "description": "For valid response try integer IDs with positive integer value.         Negative or non-integer values will generate API errors",
+      "operationId": "deleteordermacaronproduct",
+      "requestBody": {
+        "required" : true,
+        "content": {
+          "multipart/form-data": {    
+            "schema": {
+                "$ref" : "#/definitions/Del"
+            }
+          }
+        }
+      },
+      "responses": {
+        "200": {
+          "description": "Product macaron successfully deleted"
+        },
+        "400": {
+          "description": "Invalid ID supplied"
+        },
+        "404" : {
+          "description" : "Page macaron product is not found"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions" : {
+    "petstore_auth" : {
+      "type" : "oauth2",
+      "authorizationUrl" : "http://petstore.swagger.io/oauth/dialog",
+      "flow" : "implicit",
+      "scopes" : {
+        "write:pets" : "modify pets in your account",
+        "read:pets" : "read your pets"
+      }
+    },
+    "api_key" : {
+      "type" : "apiKey",
+      "name" : "api_key",
+      "in" : "header"
+    }
+  },
+  "definitions" : {
+    "User" : {
+      "type": 
+      "object",
+      "properties": {
+      "name": {
+          "type": "string",
+          "required" : true
+       },
+      "phone_number": {
+         "type": "string",
+         "required" : true
+       }
+     }
+    },
+    "Del" : {
+      "type" : "object",
+      "properties": {
+        "id": {
+            "type" : "integer",
+            "format" : "int32",
+            "minLength": 1,
+            "maxLength": 1000,
+            "required" : true,
+            "description" : "ID for delete"
+         }
+     }
+    },
+    "Order" : {
+      "type" : "object",
+      "properties" : {
+        "name" : {
+          "type" : "string",
+          "required" : true
+        },
+        "phone_number" : {
+          "type" : "string",
+          "required" : true
+        },
+        "email" : {
+          "type" : "string",
+          "required" : true
+        },
+        "product_id" : {
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        },
+        "count" : {
+          "required" : true,
+          "type" : "integer",
+          "format" : "int32"
+        }
+      },
+      "xml" : {
+        "name" : "Order"
+      }
+    },
+    "Product" : {
+      "type": 
+      "object",
+      "properties": {
+      "name": {
+          "type": "string",
+          "required" : true
+       },
+      "price": {
+         "type" : "integer",
+          "format" : "int32",
+         "required" : true
+       }
+     }
+    }
+
+  },
+
+
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
+
